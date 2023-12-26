@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Kisiler from './Kisiler';
 import './App.css';
 
 function App() {
+  const [KisileriGoster, setKisileriGoster] = useState(true);
+
+  const temizle = () => {
+    setKisileriGoster(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="govde">
+      <h1>{KisileriGoster ? "5" : "0"} birthdays today</h1>
+      {KisileriGoster && <Kisiler />}
+      <button className="buton" onClick={temizle}>
+        Clear All
+      </button>
     </div>
   );
 }
